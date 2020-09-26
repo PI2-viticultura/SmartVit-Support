@@ -3,6 +3,7 @@
 import unittest
 from app import app as application
 
+
 class TestHello(unittest.TestCase):
 
     def setUp(self):
@@ -17,6 +18,7 @@ class TestHello(unittest.TestCase):
 
     def test_content_type(self):
         self.assertIn('text/html', self.response.content_type)
+
 
 if __name__ == '__main__':
     unittest.main()
