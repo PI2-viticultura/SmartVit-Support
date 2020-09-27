@@ -20,11 +20,11 @@ def save_support_request(request):
         return { "erro": "Não é possível enviar descrição vazia"}, 400 
 
     db = MongoDB()
-
     connection_is_alive = db.test_connection()
     if connection_is_alive:
         if(db.insert_one(request)):
             return {"message": "success"}, 200
+    db.close_connection()
 
     return {'error': 'Something gone wrong'}, 500 
     

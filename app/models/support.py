@@ -28,10 +28,7 @@ class MongoDB():
         collection = db['mensagens']
         return collection
 
-    # Operações
-
     def insert_one(self, body):
-        print(body)
         try:
             collection = self.get_collection()
             collection.insert_one(body)
