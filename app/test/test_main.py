@@ -8,16 +8,10 @@ class TestHello(unittest.TestCase):
 
     def setUp(self):
         app = application.test_client()
-        self.response = app.get('/')
+        self.response = app.get('/support')
 
-    def test_get(self):
-        self.assertEqual(200, self.response.status_code)
-
-    def test_string_response(self):
-        self.assertEqual("Hello World !", self.response.data.decode('utf-8'))
-
-    def test_content_type(self):
-        self.assertIn('text/html', self.response.content_type)
+    def test_service_exist(self):
+        self.assertNotEqual(None, self.response)
 
 
 if __name__ == '__main__':
