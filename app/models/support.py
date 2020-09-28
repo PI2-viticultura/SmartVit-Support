@@ -1,5 +1,4 @@
 from settings import load_database_params
-from utils.constants import DATABASE_CONFIG
 import pymongo
 
 
@@ -57,7 +56,7 @@ class MongoDB():
                 print(f'mensagem {identifier} removida com sucesso')
             else:
                 print(f'Erro ao remover a mensagem {identifier}:'
-                             ' nenhuma mensagem encontrada para o id')
+                      ' nenhuma mensagem encontrada para o id')
         except Exception as err:
             print(f'Erro ao deletar no banco de dados: {err}')
 
