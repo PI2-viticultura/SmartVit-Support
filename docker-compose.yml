@@ -4,7 +4,7 @@ services:
 
     mongodbSupport:
         image: mongo
-        container_name: mmongodbSupport
+        container_name: mongodbSupport
         ports: 
           - '27017:27017'
         # restart: always
@@ -18,7 +18,7 @@ services:
 
 
     support-service:
-        build: ./app
+        build: .
         ports: 
           - 8000:8000
         container_name: support-service
