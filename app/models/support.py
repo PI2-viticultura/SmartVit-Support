@@ -4,9 +4,7 @@ import pymongo
 
 class MongoDB():
     def __init__(self):
-        """
-            Constructor to model class
-        """
+        """Constructor to model class"""
         self.params = load_database_params()
         try:
             self.client = pymongo.MongoClient(**self.params,
