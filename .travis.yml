@@ -26,6 +26,6 @@ jobs:
           - coverage run -m pytest
           - coverage xml
           - behave
-after_success:s
+after_success:
   - python-codacy-coverage -r coverage.xml
 
