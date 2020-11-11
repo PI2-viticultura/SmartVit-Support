@@ -17,11 +17,10 @@ def step_impl_given(context):
 def step_impl_when(context):
     request_bodies['POST'] = {"priority": "Alta",
                               "problem": "Sistema eletronico com defeito",
-                              "description": "sistema esta aquecendo muito, o que fazer"}
-    response = requests.post(
-                            'https://smartvit-support-dev.herokuapp.com/support',
-                            json=request_bodies['POST']
-                            )
+                              "description": "sistema esta aquecendo muito"}
+    requests.post(api_url,
+                  json=request_bodies['POST']
+                 )
 
 
 @then('os dados devem passar pelo servico atraves do BFF e armazenar no banco')
