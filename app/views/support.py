@@ -10,6 +10,6 @@ CORS(app)
 def support():
     if request.method == "GET":
         return controller.retrieve_support_request()
-    
+
     if request.method == "POST":
         return controller.save_support_request(request.json)
