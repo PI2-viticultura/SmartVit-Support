@@ -1,4 +1,5 @@
 from models.support import MongoDB
+from bson.json_util import dumps
 
 
 def save_support_request(request):
@@ -27,6 +28,18 @@ def save_support_request(request):
     if connection_is_alive:
         if(db.insert_one(request)):
             return {"message": "success"}, 200
+    db.close_connection()
+
+    return {'error': 'Something gone wrong'}, 500
+
+
+def retrieve_support_request():
+    db = MongoDB()
+    connection_is_alive = db.test_connection()
+    if connection_is_alive:
+        support = db.get_all()
+        if(support):
+            return dumps(support), 200
     db.close_connection()
 
     return {'error': 'Something gone wrong'}, 500

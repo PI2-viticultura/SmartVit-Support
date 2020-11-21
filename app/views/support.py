@@ -6,6 +6,10 @@ app = Blueprint('support', __name__)
 CORS(app)
 
 
-@app.route("/support", methods=["POST"])
+@app.route("/support", methods=["GET", "POST"])
 def support():
-    return controller.save_support_request(request.json)
+    if request.method == "GET":
+        return controller.retrieve_support_request()
+
+    if request.method == "POST":
+        return controller.save_support_request(request.json)
